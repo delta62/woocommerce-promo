@@ -117,18 +117,18 @@ class Promo {
         if ($thumb_id) {
             $src = wp_get_attachment_image_src($thumb_id, 'medium', TRUE);
 
-            $output .= '<a href="' . get_permalink($product->ID) . '">';
             $output .= '<div class="promo-thumb">';
+            $output .= '<a href="' . get_permalink($product->ID) . '">';
 
-            $output .= '<img src="' . $src[0] . 
-                '" alt="' . $product->post_title .
-                '" class="promo-image" />';
+            $output .= "<img src='{$src[0]}' alt='{$product->post_title} class='promo-image' />";
 
             $output .= '</a>';
             $output .= '</div>';
         }
 
+        $output .= '<a href="' . get_permalink($product->ID) . '">';
         $output .= '<strong class="promo-caption">' . $product->post_title . '</strong>';
+        $output .= '</a>';
         $output .= '</div>';
 
         return $output;
